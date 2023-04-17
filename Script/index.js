@@ -1,7 +1,28 @@
-let transcriptor = document.getElementById("transcriptor");
-let desTranscriptor = document.getElementById("desTranscriptor");
-let text = document.getElementById('text');
-let copyButton = document.getElementById('copyButton');
+
+let transcriptor = document.getElementById("transcriptor"); // Boton para encriptar
+let desTranscriptor = document.getElementById("desTranscriptor"); // boton para desencriptar
+let text = document.getElementById('text'); // este objeto hace referencia al espacio donde se reflejara el resultado
+let copyButton = document.getElementById('copyButton'); //boton de copia
+let textVanish = document.getElementById("animated-text"); //  con esta variable se eliminara el texto cuando se de click en un boton
+let llaves = {
+    "e": "enter",
+    "i": "imes",
+    "a": "ai",
+    "o": "ober",
+    "u": "ufat"   
+ }; // este objeto guarda los valores a reemplazar y sus reemplazos  para el caso de vocales
+
+let vowals ={
+    "enter":"e",
+    "imes":"i",
+    "ai":"a",
+    "ober":"o",
+    "ufat":"u"
+} // Cada cadena de caracteres sera emparejada con una vocal
+
+
+
+
 /*
 La letra "e" es convertida para "enter"
 La letra "i" es convertida para "imes"
@@ -12,97 +33,68 @@ La letra "u" es convertida para "ufat"
 
 
 function showText(){
-    let displayNotFound = document.getElementById("principal-container-media_first");
-    let displayText = document.getElementById("principal-container-media-second");
+
+    /**
+     * Esta funcion ocultara el contenedor principal y lo reemplazara 
+     * por el contenedor con la encriptacion reflejada
+     */
+    let displayNotFound = document.getElementById("principal-container-media_first"); // El contenedor principal
+    let displayText = document.getElementById("principal-container-media-second"); // Contenedor secundario
 
     displayNotFound.style.display = 'none';
     displayText.style.display = 'flex';
 }
 
 function encriptador (){
-    let input = document.getElementById("input-text").value;
-    let arr = input.toLowerCase().split("");
-   
-    let finalArr = [];
-    let textofinal;
+
+    /**
+     * Esta funcion, obtendra el texto escrito en el input
+     * aplicando una transformacion a este, segun un algoritmo sencillo
+     */
+
+    let input = document.getElementById("animated-text").value; //Texto en el area
+    let textofinal; // espacio para guardar el texto final
 
 
-    if(arr.length > 0){
+    if(input.length > 0){
+     /**
+      * En tanto el texto dentro del input, contenga mas de un caracter, se aplicara esta transformacion
+      */
+    let inputSalida = input.toLowerCase(); // transformamos el texto del input a minusculas.
 
-        for(let i = 0; i < arr.length; i++){
-    
-            if(arr[i] == 'e'){
-                arr[i] = 'enter';
-                finalArr.push(arr[i])
-            }else if(arr[i] == 'a'){
-                arr[i] = 'ai';
-                finalArr.push(arr[i]);
-            }else if(arr[i] == 'i'){
-                arr[i] = "imes";
-                finalArr.push(arr[i]);
-            }else if(arr[i] == 'o'){
-                arr[i] = "ober";
-                finalArr.push(arr[i]);
-            }else if(arr[i] == 'u'){
-                arr[i] = "ufat";
-                finalArr.push(arr[i]);
-            }
-            else{
-                finalArr.push(arr[i]);
-            }
-            
         
-        }
-        textofinal = finalArr.join("");
+    textofinal = inputSalida.replace(/[aeiou]/g, i => llaves[i])
+    text.innerText = textofinal; 
     
-     
-       text.innerText = textofinal
-    
-        showText();
+    /** 
+     * Con el objeto llaves, aplicando el metodo replace al inputSalida, buscamos si en el texto existen coincidencias
+     * como las definidas en el objeto llaves, de hacerlo, se aplicara una arrowfunction, que reemplazara las coincidencias
+     * deacuerdo al objeto 
+     * */ 
+
+    showText(); //llamamos la funcion showText
+
+    textVanish.innerText = ""; //Eliminamos el texto.
     }else{
-        alert("Escribe algo primero.")
+        alert("Escribe algo primero.") //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
     }
 }
     
 function desEncriptador(){
-    let input = document.getElementById("input-text").value;
-    
-    let arr = input.toLowerCase().split("");
-    let arrFinal = [];
+
+    /**
+     * Esta funcion sigue la misma logica que la funcion encriptar, pero con el proceso contrario
+     * aplicando el algoritmo a strings y no a caracteres
+     */
+    let input = document.getElementById("animated-text").value;
     let textoFinal;
 
-    if(arr.length > 0){
-
-        for(let j = 0; j < arr.length; j++){
-    
-            if(arr[j] == 'a' && arr[j+1] == 'i'){
-                arr[j] = 'a'; 
-                arrFinal.push(arr[j]);
-                j++; 
-            }else if (arr[j] == 'e' && arr[j+1] == 'n' && arr[j+2] == 't' && arr[j+3] == 'e' && arr[j+4] == 'r'){
-                arr[j] = 'e';
-                arrFinal.push(arr[j]);
-                j += 4; 
-            }else if (arr[j] == 'i' && arr[j+1] == 'm' && arr[j+2] == 'e' && arr[j+3] == 's'){
-                arr[j] = 'i';
-                arrFinal.push(arr[j]);
-                j += 3; 
-            }else if (arr[j] == 'o' && arr[j+1] == 'b' && arr[j+2] == 'e' && arr[j+3] == 'r'){
-                arr[j] = 'o';
-                arrFinal.push(arr[j]);
-                j += 3; 
-            }else if( arr[j] == 'u' && arr[j+1] == 'f' && arr[j+2] == 'a' && arr[j+3] == 't' ){
-                arr[j] = 'u';
-                arrFinal.push(arr[j]);
-                j += 3; 
-            }else{
-                arrFinal.push(arr[j])
-            }
-        }
-        textoFinal = arrFinal.join("");
+    if(input.length > 0){
+        let inputSalida = input.toLowerCase(); // transformamos el texto del input a minusculas.
+        textoFinal = inputSalida.replace(/(ai|imes|enter|ober|ufat)/g, i => vowals[i])
         text.innerText = textoFinal
-
         showText();
+        textVanish.innerText = "";
     }else{
         alert("TIENES QUE ESCRIBIR ALGO PRIMERO")
     }
@@ -116,7 +108,13 @@ function copy() {
     } else {
       alert("No hay texto disponible para copiar");
     }
+    text.innerHTML = "TEXTO COPIADO CON EXITO!";
   }
+
+
+
+
+
 copyButton.addEventListener('click', copy);
 
 transcriptor.onclick = encriptador;

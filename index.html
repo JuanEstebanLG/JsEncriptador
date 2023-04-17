@@ -11,16 +11,19 @@
     <title>Encriptador de texto magico</title>
 </head>
 <body>
+    <header>
 
+        <div id="logo-personal">
+            <svg id="svg_principal">
+                <image xlink:href="Media/Logos/j.svg" x="0" y="0" class="logo"/>
+            </svg>
+            <span> Developed By Juan Esteban.</span>
+        </div>
+
+    </header>
     <main>
 
         <div class="principal-container">
-            <div id="logos">
-                <svg width="150px" height="100px" id="svg_principal">
-                    <image xlink:href="Media/Logos/j.svg" x="0" y="0" width="100px" height="110px"/>
-                  </svg>
-                  <span> Developed By Juan Esteban.</span>
-            </div>
 
             <div class="principal-container-media">
                 <div id="principal-container-media_first">
@@ -44,12 +47,8 @@
 
             <div id="secondary-container-media">
            
-                         <div class="input-box">
-        
-                        <input id="input-text" type="text" placeholder="Escribe el Texto aquí"></input>
-                        </div>
                         <div class="main-text-box">
-                        <p id="animated-text"></p>
+                        <textarea id="animated-text"></textarea>
                         
                          </div>
         
@@ -66,6 +65,17 @@
                 
 
     </main>
+
+    <footer>
+        <a href="https://github.com/JuanEstebanLG"><svg class="logos_footer">
+
+            <image xlink:href="Media/Logos/github.svg" alt="Github logo" >
+        </svg></a>
+        <a href="https://www.linkedin.com/in/jlesteban3/"><svg class="logos_footer">
+
+            <image xlink:href="Media/Logos/linkedin.svg" alt="Github logo" ></image>
+        </svg></a>
+    </footer>
 </body>
 <script src="./Script/index.js"></script>
 <script src="./Script/animation.js"></script>
