@@ -7,10 +7,10 @@ Desarrollado para AluraLatam en conjunto con el programa de One Oracle Next Educ
 Sistema operativo Windows 10, Versiones actualizadas de browser para mayor estabilidad y correcto funcionamiento.
 Recomendable el uso de Google chrome, Mozilla Fireforx.
 
--Usar solo minusculas, evitar de toda las formas los acentos
--Solo encripta texto, no encripta numeros.
--No admite links ni es recomendable usar información personal
--No utilizar para generar contraseñas, el encriptado es debil
+- Usar solo minusculas, evitar de toda las formas los acentos
+- Solo encripta texto, no encripta numeros.
+- No admite links ni es recomendable usar información personal
+- No utilizar para generar contraseñas, el encriptado es debil
 
 # Características:
 
