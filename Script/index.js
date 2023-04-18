@@ -4,6 +4,9 @@ let desTranscriptor = document.getElementById("desTranscriptor"); // boton para 
 let text = document.getElementById('text'); // este objeto hace referencia al espacio donde se reflejara el resultado
 let copyButton = document.getElementById('copyButton'); //boton de copia
 let textVanish = document.getElementById("animated-text"); //  con esta variable se eliminara el texto cuando se de click en un boton
+
+
+
 let llaves = {
     "e": "enter",
     "i": "imes",
@@ -110,9 +113,6 @@ function copy() {
     }
     text.innerHTML = "TEXTO COPIADO CON EXITO!";
   }
-
-
-
 
 
 copyButton.addEventListener('click', copy);
