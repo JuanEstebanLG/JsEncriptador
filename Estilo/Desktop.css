@@ -4,6 +4,61 @@
 
 }
 
+@keyframes scaleUp {
+    from,to{
+      transform: scale(1);
+    }
+    70%{
+      transform: scale(.70);
+    }
+}
+
+@keyframes textOpacity {
+  from,to{
+    opacity: 0;
+  }
+  10%{
+      opacity:0.1 ;
+  }
+  20%{
+    opacity:0.2 ;
+  }
+  30%{
+    opacity: 0.3;
+  }
+  40%{
+    opacity: 0.4;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  60%{
+    opacity:0.6 ;
+  }
+  70%{
+    opacity: 0.7;
+  }
+  80%{
+    opacity:0.8;
+  }
+  90%{
+    opacity:0.9;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  from,to{
+   transform: scale(1);
+  }  
+  70%{
+    transform: scale(.89);
+  }
+
+}
+
 @keyframes colorVariant {
   from, to{ color: black;}
   50% { 
@@ -258,16 +313,27 @@ box-shadow: 17px 23px 13px -9px rgba(82,82,82,1);
   border-radius: 1rem;
   background-color: #033471aa;
   margin: 1rem 2.3rem;
+  transition: all ease 1s;
 }
 
 #copyButton:hover{
-  background-color:#033571e2 ;
+
+  background-color: rgba(18, 200, 46, 0.744) ;
+  cursor: pointer;
+  width: 60%;
+  transform: scale(1.1);
+  border: none;
+  font-weight: bold;
 }
 
 #principal-container-media_first img{
-    width: 100%;
+    margin: 1rem auto;
+    width: 75%;
     height: 60%;
+    animation: float ease infinite 3s; 
+    
 }
+
 
 .title{
     width: auto;
@@ -276,7 +342,6 @@ box-shadow: 17px 23px 13px -9px rgba(82,82,82,1);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--PrincipalColor);
     letter-spacing: 2px;
-    text-decoration: underline;
 }
 
 #principal-container-media_first p{
@@ -347,7 +412,7 @@ box-shadow: 17px 16px 5px -8px rgba(89,89,89,1);
     align-items: end;
     min-width: 100%;
     min-height: 10%;
-
+    border: none;
     grid-column: 1;
     grid-row: 2;
   }
@@ -356,21 +421,30 @@ box-shadow: 17px 16px 5px -8px rgba(89,89,89,1);
 .main-buttons-box button{
     width: 40rem;
     height: 8rem;
+
     border-radius: 1rem;
     margin-left: 2rem ;
     margin-right: 2rem ;
     margin-bottom: 1.95rem;
+
     font-size: 1.5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
-
+    border: none;
     background-color: #175299;
     color: white;
-    border: 2px double black;
+    
+    box-shadow: 0 0 8px rgb(1, 6, 32);
+    transition: all ease 2s;
 }
 
+
+
 .main-buttons-box button:hover{
-  background-color: #4a76ab
+  background-color: #4aab8c;
+  cursor: pointer;
+  width: 28rem;
+  transform: rotateZ(-10deg);
 }
 
 .main-buttons-box button:nth-child(2):hover{

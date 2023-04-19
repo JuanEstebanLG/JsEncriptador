@@ -103,7 +103,18 @@ function desEncriptador(){
     }
 }
 
+function showStyle(){
+    text.style.animation = "textOpacity ease 1s ";
+    text.style.color = "green";
+    text.style.transition = "all ease 2s"
+    text.style.animation = "scaleUp ease 3s infinite"
+    text.style.transform = "rotate(360deg)"
+
+}
+
 function copy() {
+    
+
     let textCopy = text.textContent;
     if (textCopy) {
       navigator.clipboard.writeText(textCopy);
@@ -112,6 +123,11 @@ function copy() {
       alert("No hay texto disponible para copiar");
     }
     text.innerHTML = "TEXTO COPIADO CON EXITO!";
+    
+    showStyle();
+    
+
+
   }
 
 
