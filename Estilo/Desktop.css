@@ -388,13 +388,14 @@ box-shadow: 17px 16px 5px -8px rgba(89,89,89,1);
 
 #animated-text {
     
-    font-size: 2rem; 
-    font-family: monospace; 
+    font-size: 1.7rem; 
+    font-family: 'Sigmar', cursive;
+    font-weight: 200;
     border: none;
     background-color: transparent;
 
     white-space:pre-wrap; 
-
+    resize: none;
     margin: .5rem;
     width: calc(100% - 1rem);
     height: calc(100% - 1rem);

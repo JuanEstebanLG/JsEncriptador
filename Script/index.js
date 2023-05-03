@@ -65,19 +65,26 @@ function encriptador (){
       */
     let inputSalida = input.toLowerCase(); // transformamos el texto del input a minusculas.
 
-        
-    textofinal = inputSalida.replace(/[aeiou]/g, i => llaves[i])
+    textofinal = inputSalida.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                                                    .replace(/[^\w\s]|_/g, '')
+                                                    .replace(/\s+/g, ' ')
+                                                    .replace(/[aeiou]/g, i => llaves[i]);
     text.innerText = textofinal; 
+
+    if(text.innerHTML == ''){
+        alert('Ingresa un texto Valido, primero');
+    }else{
+        showText(); //llamamos la funcion showText
+        textVanish.innerText = ""; //Eliminamos el texto.
+    }
     
     /** 
      * Con el objeto llaves, aplicando el metodo replace al inputSalida, buscamos si en el texto existen coincidencias
      * como las definidas en el objeto llaves, de hacerlo, se aplicara una arrowfunction, que reemplazara las coincidencias
-     * deacuerdo al objeto 
+     * deacuerdo al objeto, antes de eso, se eliminaran caracteres especiales y letras con acentos, luego, verifica si lo generado es espacio en blanco
+     * de ser así. no permite la encriptación
      * */ 
 
-    showText(); //llamamos la funcion showText
-
-    textVanish.innerText = ""; //Eliminamos el texto.
     }else{
         alert("Escribe algo primero.") //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
     }

@@ -301,10 +301,11 @@ background-color:#033571e2 ;
 
 #animated-text {
   
-  font-size: 2rem; 
-  font-family: monospace; 
+  font-size: 1.7rem; 
+  font-family: 'Sigmar', cursive;
   white-space: pre-wrap; 
   word-break: break-all;
+  resize: none;
   color: wheat;
   background-color: transparent;
   width: 100%;
