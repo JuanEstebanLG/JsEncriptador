@@ -36,7 +36,7 @@ Nuevas animaciones | ✔️ |
 
 # En progreso:
 
-Version  | 0.1.1  |
+Version  | 0.1.2 |
 ---  | ---  |
 Modo nocturno  | 🟥  |
 Aumento en la estabilidad  | 🟩 |
