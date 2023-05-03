@@ -65,10 +65,12 @@ function encriptador (){
       */
     let inputSalida = input.toLowerCase(); // transformamos el texto del input a minusculas.
 
+
     textofinal = inputSalida.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
                                                     .replace(/[^\w\s]|_/g, '')
                                                     .replace(/\s+/g, ' ')
                                                     .replace(/[aeiou]/g, i => llaves[i]);
+
     text.innerText = textofinal; 
 
     if(text.innerHTML == ''){
@@ -86,7 +88,7 @@ function encriptador (){
      * */ 
 
     }else{
-        alert("Escribe algo primero.") //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
+        alert("Escribe algo primero."); //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
     }
 }
     
@@ -101,8 +103,8 @@ function desEncriptador(){
 
     if(input.length > 0){
         let inputSalida = input.toLowerCase(); // transformamos el texto del input a minusculas.
-        textoFinal = inputSalida.replace(/(ai|imes|enter|ober|ufat)/g, i => vowals[i])
-        text.innerText = textoFinal
+        textoFinal = inputSalida.replace(/(ai|imes|enter|ober|ufat)/g, i => vowals[i]).replace(/[^a-zA-Z0-9 ]/g, '');
+        text.innerText = textoFinal;
         showText();
         textVanish.innerText = "";
     }else{
