@@ -77,6 +77,8 @@ function encriptador (){
         alert('Ingresa un texto Valido, primero');
     }else{
         showText(); //llamamos la funcion showText
+        hiddenStyle();
+        textVanish.style.backgroundColor = "transparent";
         textVanish.innerText = ""; //Eliminamos el texto.
     }
     
@@ -88,10 +90,11 @@ function encriptador (){
      * */ 
 
     }else{
-        alert("Escribe algo primero."); //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
+        textVanish.style.backgroundColor = "rgba(248, 120, 120, 0.433)"
+         //Si el input no tiene texto y se intenta encriptar, se mandara esta alerta
     }
 }
-    
+
 function desEncriptador(){
 
     /**
@@ -106,8 +109,10 @@ function desEncriptador(){
         textoFinal = inputSalida.replace(/(ai|imes|enter|ober|ufat)/g, i => vowals[i]).replace(/[^a-zA-Z0-9 ]/g, '');
         text.innerText = textoFinal;
         showText();
+        hiddenStyle();
         textVanish.innerText = "";
     }else{
+
         alert("TIENES QUE ESCRIBIR ALGO PRIMERO")
     }
 }
@@ -119,6 +124,14 @@ function showStyle(){
     text.style.animation = "scaleUp ease 3s infinite"
     text.style.transform = "rotate(360deg)"
 
+}
+
+function hiddenStyle(){
+    text.style.animation = null;
+    text.style.color = "black";
+    text.style.transition = null;
+    text.style.animation = null;
+    text.style.transform = null;
 }
 
 function copy() {
